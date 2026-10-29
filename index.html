@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#101021">
+	<meta name="description" content="A quick daily set of memory, logic, focus, and speed puzzles.">
+	<title>MindSpark AI | Brain Training Challenge</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<div class="app-shell">
+		<header class="topbar">
+			<a class="brand" href="#home" aria-label="MindSpark AI dashboard">
+				<span class="brand-mark" aria-hidden="true">M</span>
+				<span><strong>MindSpark</strong><small>DAILY BRAIN TRAINING</small></span>
+			</a>
+			<div class="topbar-right">
+				<span class="today-label" id="today-label"></span>
+				<span class="status-pill"><span class="status-dot"></span> YOUR PERSONAL PRACTICE</span>
+			</div>
+		</header>
+
+		<main id="home" class="dashboard">
+			<section class="welcome-row" aria-labelledby="welcome-title">
+				<div class="welcome-copy">
+					<p class="eyebrow"><span class="eyebrow-line"></span> THINK CLEAR. PLAY OFTEN.</p>
+					<h1 id="welcome-title">A little challenge.<br><span>A sharper routine.</span></h1>
+					<p class="welcome-description">Five quick games for memory, logic, focus, and reaction time. Pick a challenge and see how you do today.</p>
+					<button class="button button-primary" id="daily-button" type="button">
+						<span class="button-icon" aria-hidden="true">✦</span>
+						<span>Play today’s challenge</span>
+						<span class="button-arrow" aria-hidden="true">→</span>
+					</button>
+				</div>
+				<aside class="daily-card" aria-label="Today's daily challenge">
+					<div class="daily-card-top"><span class="daily-label">TODAY'S PICK</span><span class="daily-spark" aria-hidden="true">✳</span></div>
+					<p id="daily-game-name" class="daily-game-name">Loading challenge...</p>
+					<p class="daily-date" id="daily-date"></p>
+					<div class="daily-rule"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+					<p class="daily-caption">A new pick each local calendar day</p>
+				</aside>
+			</section>
+
+			<section class="stats-grid" aria-label="Your progress">
+				<article class="stat-card stat-total">
+					<div class="stat-top"><span class="stat-label">TOTAL POINTS</span><span class="stat-symbol" aria-hidden="true">✳</span></div>
+					<p class="stat-value" id="total-points">0</p>
+					<p class="stat-foot">earned across all challenges</p>
+				</article>
+				<article class="stat-card stat-best">
+					<div class="stat-top"><span class="stat-label">PERSONAL BEST</span><span class="stat-symbol" aria-hidden="true">↗</span></div>
+					<p class="stat-value" id="best-score">0</p>
+					<p class="stat-foot">highest single challenge score</p>
+				</article>
+				<article class="stat-card stat-completed">
+					<div class="stat-top"><span class="stat-label">CHALLENGES FINISHED</span><span class="stat-symbol" aria-hidden="true">✓</span></div>
+					<p class="stat-value" id="completed-count">0</p>
+					<p class="stat-foot">complete a game to add one</p>
+				</article>
+			</section>
+
+			<section class="games-section" aria-labelledby="games-title">
+				<div class="section-heading">
+					<div><p class="eyebrow"><span class="eyebrow-line"></span> YOUR GAME LIBRARY</p><h2 id="games-title">Choose your challenge</h2></div>
+					<p class="section-note">Five ways to give your attention a workout.</p>
+				</div>
+				<div class="game-grid">
+					<button class="game-card game-memory" type="button" data-game="memory">
+						<span class="game-card-top"><span class="game-icon" aria-hidden="true"><span class="matrix-icon"><i></i><i></i><i></i><i></i></span></span><span class="game-number">01 / MEMORY</span></span>
+						<span class="game-name">Memory Matrix</span>
+						<span class="game-description">Watch the sequence. Then retrace it, one tile at a time.</span>
+						<span class="game-card-bottom"><span>SEQUENCE RECALL</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+					</button>
+					<button class="game-card game-number" type="button" data-game="number">
+						<span class="game-card-top"><span class="game-icon" aria-hidden="true">∑</span><span class="game-number">02 / LOGIC</span></span>
+						<span class="game-name">Number Detective</span>
+						<span class="game-description">Find the rule hiding behind each number sequence.</span>
+						<span class="game-card-bottom"><span>SEQUENCE SOLVING</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+					</button>
+					<button class="game-card game-color" type="button" data-game="color">
+						<span class="game-card-top"><span class="game-icon color-icon" aria-hidden="true">Aa</span><span class="game-number">03 / FOCUS</span></span>
+						<span class="game-name">Color Confusion</span>
+						<span class="game-description">Ignore what the word says. Name the color you see.</span>
+						<span class="game-card-bottom"><span>SELECTIVE ATTENTION</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+					</button>
+					<button class="game-card game-reflex" type="button" data-game="reflex">
+						<span class="game-card-top"><span class="game-icon" aria-hidden="true">⌁</span><span class="game-number">04 / SPEED</span></span>
+						<span class="game-name">Reflex Challenge</span>
+						<span class="game-description">Wait for the signal, then tap as quickly as you can.</span>
+						<span class="game-card-bottom"><span>REACTION TIME</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+					</button>
+					<button class="game-card game-pattern" type="button" data-game="pattern">
+						<span class="game-card-top"><span class="game-icon" aria-hidden="true">◈</span><span class="game-number">05 / LOGIC</span></span>
+						<span class="game-name">Pattern Master</span>
+						<span class="game-description">Read the repeating pattern and choose what comes next.</span>
+						<span class="game-card-bottom"><span>PATTERN RECOGNITION</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+					</button>
+				</div>
+			</section>
+
+			<section class="radar-section" aria-labelledby="radar-title">
+				<div class="radar-heading">
+					<div><p class="eyebrow"><span class="eyebrow-line"></span> YOUR PLAY HISTORY</p><h2 id="radar-title">Brain Radar</h2></div>
+					<p class="radar-disclaimer">Game performance indicators only. Not medical measurements or validated intelligence scores.</p>
+				</div>
+				<div class="radar-grid">
+					<div class="radar-item"><div class="radar-label"><span class="radar-dot radar-memory"></span><span>Memory</span><strong id="radar-memory-value">0</strong></div><div class="radar-track"><span id="radar-memory-bar" class="radar-fill radar-memory"></span></div></div>
+					<div class="radar-item"><div class="radar-label"><span class="radar-dot radar-logic"></span><span>Logic</span><strong id="radar-logic-value">0</strong></div><div class="radar-track"><span id="radar-logic-bar" class="radar-fill radar-logic"></span></div></div>
+					<div class="radar-item"><div class="radar-label"><span class="radar-dot radar-focus"></span><span>Focus</span><strong id="radar-focus-value">0</strong></div><div class="radar-track"><span id="radar-focus-bar" class="radar-fill radar-focus"></span></div></div>
+					<div class="radar-item"><div class="radar-label"><span class="radar-dot radar-speed"></span><span>Speed</span><strong id="radar-speed-value">0</strong></div><div class="radar-track"><span id="radar-speed-bar" class="radar-fill radar-speed"></span></div></div>
+				</div>
+				<p class="radar-empty" id="radar-empty">Finish a challenge to start building your radar.</p>
+			</section>
+
+			<footer class="page-footer"><span>MINDS PARK · PLAY AT YOUR OWN PACE</span><span>No AI model or health assessment is used.</span></footer>
+		</main>
+
+		<main id="game-screen" class="game-screen" hidden>
+			<div class="game-nav">
+				<button class="text-button" id="dashboard-button" type="button"><span aria-hidden="true">←</span> Dashboard</button>
+				<div class="game-nav-actions"><button class="icon-button" id="restart-button" type="button" aria-label="Restart challenge" title="Restart challenge">↻</button></div>
+			</div>
+			<section class="challenge-panel" aria-labelledby="challenge-title">
+				<div class="challenge-heading">
+					<div><p class="eyebrow" id="challenge-category">BRAIN TRAINING</p><h1 id="challenge-title">Challenge</h1><p id="challenge-subtitle" class="challenge-subtitle"></p></div>
+					<label class="difficulty-label" for="difficulty-select">DIFFICULTY
+						<select id="difficulty-select">
+							<option value="easy">Easy</option>
+							<option value="medium" selected>Medium</option>
+							<option value="hard">Hard</option>
+						</select>
+					</label>
+				</div>
+				<div class="challenge-metrics" aria-live="polite">
+					<div><span class="metric-label">SCORE</span><strong id="session-score">0</strong></div>
+					<div><span class="metric-label">ACCURACY</span><strong id="session-accuracy">—</strong></div>
+					<div><span class="metric-label">TIME LEFT</span><strong id="time-left">—</strong></div>
+					<div><span class="metric-label">ROUND</span><strong id="round-count">—</strong></div>
+				</div>
+				<div class="progress-wrap"><div class="progress-caption"><span>CHALLENGE PROGRESS</span><span id="progress-label">0%</span></div><div class="progress-track" role="progressbar" aria-label="Challenge progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar"><span id="progress-fill"></span></div></div>
+				<div id="game-stage" class="game-stage" aria-live="polite"></div>
+				<p id="game-feedback" class="game-feedback" role="status" aria-live="polite"></p>
+			</section>
+			<p class="game-screen-foot">MindSpark practice scores are for play and reflection, not a medical or intelligence assessment.</p>
+		</main>
+	</div>
+</body>
+</html>
